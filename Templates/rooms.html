@@ -1,0 +1,36 @@
+<!-- templates/home.html -->
+<title>مافیا</title>
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+{% else %}
+<a href="/login">ورود</a>
+<a href="/register">ثبت نام</a>
+{% endif %}
+<center>
+        <p>
+           به مافیا آنلاین خوش آمدید
+        </p>
+</center>
+{% endblock %}
+  <!DOCTYPE html>
+<style type="text/css">
+body{
+ direction:rtl;
+}
+</style>
+  <font color="WHITE">
+  <font size="+2">
+  <pre> </pre>
+  <a href="/rooms">اتاق ها</a>
+    <head>
+      <meta charset=utf-8"">
+    </head>
+    <body background='https://uupload.ir/files/zrmv_mafia-2.jpg'>
+
+    </body>
+  </html>

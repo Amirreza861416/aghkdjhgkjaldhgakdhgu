@@ -1,0 +1,44 @@
+#body {
+#  background-color: Green;
+#}
+<!DOCTYPE html>
+<style type="text/css">
+body{
+direction:rtl;
+}
+</style>
+<font color="WHITE">
+<font size="+2">
+<html LANG="en" dir="ltr">
+<center>
+        <p>
+           به مافیا انلاین خوش آمدید
+        </p>
+</center>
+  <head>
+    <meta charset=utf-8"">
+    <title>مافیا انلاین</title>
+  </head>
+
+  <body background='https://uupload.ir/files/zrmv_mafia-2.jpg'>
+  </body>
+</html>
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<center>
+        <p>
+            Hi {{ user.username }}!
+        </p>
+</center>
+  <a href="/rooms">اتاق ها</a>
+  <a href="/users/logout">خروج</a>
+{% else %}
+<a href="/users/login">ورود</a>
+<a href="/users/signup">ثبت نام</a>
+{% endif %}
+{% endblock %}
