@@ -1,36 +1,93 @@
-<!-- templates/home.html -->
-<title>مافیا</title>
-{% extends 'base.html' %}
+{% for a in lista %}
+  <p>{{a}}</p>
+{% endfor %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+  width: 80px;
+  height: 205px;
+  background-color: Gray;
+  animation-name: example;
+  animation-duration: 8s;
+}
+
+@keyframes example {
+  0%   {background-color: red;}
+  25%  {background-color: gray;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
+}
+</style>
+</head>
+</html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=0.6">
+<style>
+.vertical-menu {
+  width: 200px;
+}
+
+.vertical-menu a {
+  background-color: #;
+  color: white;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc;
+}
+
+.vertical-menu a.active {
+  background-color: #000000;
+  color: White;
+}
+</style>
+</head>
+</html>
+<style type="text/css">
+body{
+direction:rtl;
+}
+</style>
+<font color="WHITE">
+<font size="+2">
+<html LANG="en" dir="ltr">
+  <head>
+    <meta charset=utf-8"">
+    <title>مافیا انلاین</title>
+  </head>
+  <body background='https://uupload.ir/files/zrmv_mafia-2.jpg'>
+    <p id="demo"></p>
+    <script>
+    var i = 0;
+    var txt = 'به مافیا انلاین خوش امدید';
+    var speed = 50;
+
+    function typeWriter() {
+      if (i < txt.length) {
+        document.getElementById("demo").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    typeWriter()
+    </script>
+  </body>
+</html>
+
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
-{% else %}
-<a href="/login">ورود</a>
-<a href="/register">ثبت نام</a>
+<div class="vertical-menu">
+  {% for a in lista %}
+    <p>a</p>
+  {% endfor %}
 {% endif %}
-<center>
-        <p>
-           به مافیا آنلاین خوش آمدید
-        </p>
-</center>
 {% endblock %}
-  <!DOCTYPE html>
-<style type="text/css">
-body{
- direction:rtl;
-}
-</style>
-  <font color="WHITE">
-  <font size="+2">
-  <pre> </pre>
-  <a href="/rooms">اتاق ها</a>
-    <head>
-      <meta charset=utf-8"">
-    </head>
-    <body background='https://uupload.ir/files/zrmv_mafia-2.jpg'>
-
-    </body>
-  </html>

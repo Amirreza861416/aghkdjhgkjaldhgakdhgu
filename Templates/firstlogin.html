@@ -1,0 +1,109 @@
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <style>
+    a {
+      font-family: "Aviny", Times, serif;
+    }
+    div{
+      width: 80px;
+      height: 265px;
+      background-color: Gray;
+      animation-name: example;
+      animation-duration: 8s;
+    }
+
+    @keyframes example {
+      0%   {background-color: red;}
+      25%  {background-color: gray;}
+      50%  {background-color: blue;}
+      100% {background-color: green;}
+    }
+  </style>
+  </head>
+  </html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=0.6">
+  <style>
+  .vertical-menu {
+    width: 200px;
+  }
+
+  .vertical-menu a {
+    background-color: #;
+    color: white;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+  }
+
+  .vertical-menu a:hover {
+    background-color: #ccc;
+  }
+
+  .vertical-menu a.active {
+    background-color: #000000;
+    color: White;
+  }
+  </style>
+  </head>
+  </html>
+  <style type="text/css">
+  body{
+  direction:rtl;
+  }
+  </style>
+  <font color="WHITE">
+  <font size="+2">
+  <html LANG="en" dir="ltr">
+    <head>
+      <meta charset=utf-8"">
+      <title>مافیا انلاین</title>
+    </head>
+    <body background='https://uupload.ir/files/zrmv_mafia-2.jpg'>
+      <p id="demo"></p>
+    <script>
+      var i = 0;
+      var txt = 'فقط کسانی که وارد شدند می توانند به این صفحه دسترسی داشته باشند';
+      var speed = 50;
+
+      function typeWriter() {
+        if (i < txt.length) {
+          document.getElementById("demo").innerHTML += txt.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+      typeWriter()
+      </script>
+    </body>
+  </html>
+
+
+  {% block content %}
+  {% if user.is_authenticated %}
+  <div class="vertical-menu">
+    <a href="#">منو</a>
+    <a href="/game">بازی</a>
+    <a href="/users/logout">خروج</a>
+    <a href="/info">درباره</a>
+
+  {% else %}
+  <div class="vertical-menu">
+    <a href="#">منو</a>
+    <a href="/users/login">ورود</a>
+    <a href="/users/signup">ثبت نام</a>
+    <a href="/info">درباره</a>
+
+  </div>
+  {% endif %}
+  {% if user.is_superuser %}
+  <div class="vertical-menu">
+    <a href="/inbox">پیام های دریافتی</a>
+    <a href="/outbox">پیام های فرستاده شده</a>
+    <a href="/compose">فرستادن پیام</a>
+    <a href="/manage-admin">ادمین</a>
+  {% endif %}
+  {% endblock %}
